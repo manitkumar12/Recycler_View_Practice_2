@@ -47,20 +47,22 @@ public class MainActivity extends AppCompatActivity {
             Recycler_view_getter_setter recycler_view_getter_setter = new Recycler_view_getter_setter();
 
 
+            recycler_view_getter_setter.setClick_option(
+                    Recycler_view_getter_setter.PRESENT_CLICKED
+            );
+
+
             recycler_view_getter_setter.setRoll_no(""+i);
-            recycler_view_getter_setter.setLeave("Leave"+i);
+
             recycler_view_getter_setter.setName("Name"+i);
-            recycler_view_getter_setter.setAbsent("Absent"+i);
-            recycler_view_getter_setter.setPresent("Present"+i);
-
-
-
-
 
 
             input.add(recycler_view_getter_setter);
         }
-        mAdapter = new Adapter(input);
+
+
+
+           mAdapter = new Adapter(input);
 
 
 
@@ -72,6 +74,8 @@ public class MainActivity extends AppCompatActivity {
 
         SnapHelper snapHelper = new LinearSnapHelper();
         snapHelper.attachToRecyclerView(recyclerView);
+
+
 
 
 

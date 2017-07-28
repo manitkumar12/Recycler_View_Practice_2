@@ -1,8 +1,7 @@
 package com.grademojo.recycler_view_practice;
 
-import android.graphics.Color;
+import android.content.Context;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.widget.TextViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -18,6 +17,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
 
     private List<Recycler_view_getter_setter> values;
+
+
 
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -46,7 +47,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             text_Absent.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
 
 
                     text_Present.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
@@ -106,7 +106,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
 
 
-
     public Adapter(List<Recycler_view_getter_setter > mydataset){
 
         values = mydataset;
@@ -128,23 +127,54 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     public void onBindViewHolder(ViewHolder holder, final int position) {
 
-        final String roll_no1 = values.get(position).getRoll_no();
-        final String leave_1 = values.get(position).getLeave();
-        final String name_1 = values.get(position).getName();
-        final String absent_1 = values.get(position).getAbsent();
-        final  String present_1 = values.get(position).getPresent();
+
+        Recycler_view_getter_setter item = values.get(position);
+        Context context = holder.layout.getContext();
+
+
+        switch (item.getClick_option()){
+            case Recycler_view_getter_setter.PRESENT_CLICKED:
+
+                holder.text_Present.setTextColor(ContextCompat.getColor(context,R.color.green));
+                holder.text_Absent.setTextColor(ContextCompat.getColor(context,R.color.black));
+                holder.text_Leave.setTextColor(ContextCompat.getColor(context,R.color.black));
+
+
+
+                break;
+
+            case Recycler_view_getter_setter.LEAVE_CLICKED:
+
+                holder.text_Leave.setTextColor(ContextCompat.getColor(context,R.color.yellow));
+                holder.text_Absent.setTextColor(ContextCompat.getColor(context,R.color.black));
+                holder.text_Present.setTextColor(ContextCompat.getColor(context,R.color.black));
+
+                break;
+
+            default:
+
+                holder.text_Absent.setTextColor(ContextCompat.getColor(context,R.color.red));
+                holder.text_Present.setTextColor(ContextCompat.getColor(context,R.color.black));
+                holder.text_Leave.setTextColor(ContextCompat.getColor(context,R.color.black));
+
+
+        }
 
 
 
 
+        // Information current=data.get(position);
+        //   holder.title.setText(current.title);
+
+        // holder.title.setText(current.title);
+
+
+        //Integer.parseInt(view.getTag().toString())
 
 
 
-        holder.text_Roll_no.setText(""+roll_no1);
-        holder.text_Leave.setText(""+leave_1);
-        holder.text_Name.setText(""+name_1);
-        holder.text_Absent.setText(""+absent_1);
-        holder.text_Present.setText(""+present_1);
+        holder.text_Roll_no.setText("" + item.getRoll_no());
+        holder.text_Name.setText("" + item.getName());
 
 
 

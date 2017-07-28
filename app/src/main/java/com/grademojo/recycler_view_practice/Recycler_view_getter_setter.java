@@ -7,12 +7,22 @@ package com.grademojo.recycler_view_practice;
 public class Recycler_view_getter_setter {
 
 
+    public static final int LEAVE_CLICKED = 0;
+
+    public static final int ABSENT_CLICKED = 1;
+
+    public static final int PRESENT_CLICKED = 2;
+
+
 
     private String roll_no;
-    private String leave;
+
     private String name;
-    private String absent;
-    private String present;
+
+
+
+
+    private int click_option;
 
 
 
@@ -21,9 +31,7 @@ public class Recycler_view_getter_setter {
     }
 
 
-    public void setLeave(String leave) {
-        this.leave = leave;
-    }
+
 
 
 
@@ -32,37 +40,28 @@ public class Recycler_view_getter_setter {
     }
 
 
-    public void setAbsent(String absent) {
-        this.absent = absent;
+    public void setClick_option(int click_option) {
+        this.click_option = click_option;
+    }
+
+    public int getClick_option() {
+        return click_option;
     }
 
 
 
-    public void setPresent(String present) {
-        this.present = present;
-    }
 
     public String getRoll_no() {
         return roll_no;
     }
 
 
-    public String getPresent() {
-        return present;
-    }
 
-
-    public String getAbsent() {
-        return absent;
-    }
 
     public String getName() {
         return name;
     }
 
-    public String getLeave() {
-        return leave;
-    }
 
 
 
