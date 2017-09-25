@@ -2,6 +2,7 @@ package com.grademojo.recycler_view_practice;
 
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -23,6 +24,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
+        
 
         public TextView text_Roll_no , text_Leave ,text_Name ,text_Present ,text_Absent;
 
@@ -60,6 +62,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                     text_Present.setTextColor(ContextCompat.getColor(v.getContext(), R.color.black));
 
 
+
+                    values.get( getAdapterPosition() ).setClick_option(
+                            Recycler_view_getter_setter.ABSENT_CLICKED
+                    );
+
+
                 }
             });
 
@@ -73,6 +81,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                     text_Present.setTextColor(ContextCompat.getColor(v.getContext(),R.color.green));
                     text_Leave.setTextColor(ContextCompat.getColor(v.getContext(),R.color.black));
                     text_Absent.setTextColor(ContextCompat.getColor(v.getContext(),R.color.black));
+
+
+                    values.get( getAdapterPosition() ).setClick_option(
+                            Recycler_view_getter_setter.PRESENT_CLICKED
+                    );
+
                 }
             });
 
@@ -87,6 +101,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                     text_Present.setTextColor(ContextCompat.getColor(v.getContext(),R.color.black));
                     text_Leave.setTextColor(ContextCompat.getColor(v.getContext(),R.color.yellow));
                     text_Absent.setTextColor(ContextCompat.getColor(v.getContext(),R.color.black));
+
+
+                    values.get( getAdapterPosition() ).setClick_option(
+                            Recycler_view_getter_setter.LEAVE_CLICKED
+                    );
 
                 }
             });
@@ -138,8 +157,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                 holder.text_Present.setTextColor(ContextCompat.getColor(context,R.color.green));
                 holder.text_Absent.setTextColor(ContextCompat.getColor(context,R.color.black));
                 holder.text_Leave.setTextColor(ContextCompat.getColor(context,R.color.black));
-
-
 
                 break;
 

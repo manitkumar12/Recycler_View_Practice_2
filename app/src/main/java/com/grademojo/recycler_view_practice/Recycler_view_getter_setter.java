@@ -13,6 +13,8 @@ public class Recycler_view_getter_setter {
 
     public static final int PRESENT_CLICKED = 2;
 
+    private int click_option;
+
 
 
     private String roll_no;
@@ -22,7 +24,7 @@ public class Recycler_view_getter_setter {
 
 
 
-    private int click_option;
+
 
 
 
